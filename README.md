@@ -1,9 +1,13 @@
 
+
+
 # recall
 
 recall is a Java Project that demonstrates a fully-working, software-based raycaster. It was inspired by retro games such as Wolfenstein, DOOM, and more. 
 
 This project was written by me during my university studies a few years ago, but is now being ported to GitHub and refactored. This project was instrumental for me to get deeper into alogrithms and mathematics, and its usage in development. Some of the development practises were messy, but it taught me a lot. I'm also in the process of adding new features.
+
+![](https://github.com/jackjtaylor/recall/blob/main/Walkthrough.gif)
 
 
 ## Tech Stack
