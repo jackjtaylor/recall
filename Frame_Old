@@ -59,9 +59,9 @@ public class Frame extends Actor {
     };
 
     private int[][] colors = {
-            { 198, 110, 65 },
-            { 168, 70, 21 },
-            { 255, 255, 255 },
+            { 255, 241, 232 },
+            { 178, 198, 199 },
+            { 255, 0, 50 },
             { 0, 0, 0 }
     };
 
@@ -69,7 +69,7 @@ public class Frame extends Actor {
     double playerY = 1;
     double playerAngle = 80;
     double playerFOV = 75;
-    double playerRotationSpeed = 0.125;
+    double playerRotationSpeed = 0.25;
     double playerMoveSpeed = 0.005;
 
     double rayIncrement = playerFOV / screenWidth;
@@ -115,6 +115,16 @@ public class Frame extends Actor {
             double distance = 0;
             double height = 0;
 
+            /*
+             * if (MyWorld.getActors(Enemy) != null)
+             * {
+             * for (int enemy = 0; enemy < MyWorld.getActors(Enemy); enemy++)
+             * {
+             * 
+             * }
+             * }
+             */
+
             while (true) {
                 rayX += rayCos;
                 rayY += raySin;
@@ -128,6 +138,15 @@ public class Frame extends Actor {
                     double y = (screenHeight / 2) - height;
 
                     for (int i = 0; i < 8; i++) {
+                        // System.out.println((int)(colors[texture1[i][(int)texturePositionX]][0] * (255
+                        // - distance)));
+                        // Color texColor = new Color (
+                        // Math.min(255, (int)(colors[texture1[i][(int)texturePositionX]][0] * (255 -
+                        // distance))),
+                        // Math.min(255, (int)(colors[texture1[i][(int)texturePositionX]][1] * (255 -
+                        // distance))),
+                        // Math.min(255, (int)(colors[texture1[i][(int)texturePositionX]][2] * (255 -
+                        // distance))));
 
                         Color texColor;
 
@@ -135,29 +154,29 @@ public class Frame extends Actor {
                             texColor = new Color(
                                     (int) Math.min(
                                             colors[texture2[i][(int) texturePositionX]][0]
-                                                    / Math.max(Math.pow(distance * 0.005, 2), 0.01),
+                                                    / Math.max(Math.pow(distance * 0.02, 2), 0.01),
                                             colors[texture2[i][(int) texturePositionX]][0]),
                                     (int) Math.min(
                                             colors[texture2[i][(int) texturePositionX]][1]
-                                                    / Math.max(Math.pow(distance * 0.005, 2), 0.01),
+                                                    / Math.max(Math.pow(distance * 0.02, 2), 0.01),
                                             colors[texture2[i][(int) texturePositionX]][1]),
                                     (int) Math.min(
                                             colors[texture2[i][(int) texturePositionX]][2]
-                                                    / Math.max(Math.pow(distance * 0.005, 2), 0.01),
+                                                    / Math.max(Math.pow(distance * 0.02, 2), 0.01),
                                             colors[texture2[i][(int) texturePositionX]][2]));
                         } else {
                             texColor = new Color(
                                     (int) Math.min(
                                             colors[texture1[i][(int) texturePositionX]][0]
-                                                    / Math.max(Math.pow(distance * 0.01, 2), 0.01),
+                                                    / Math.max(Math.pow(distance * 0.02, 2), 0.01),
                                             colors[texture1[i][(int) texturePositionX]][0]),
                                     (int) Math.min(
                                             colors[texture1[i][(int) texturePositionX]][1]
-                                                    / Math.max(Math.pow(distance * 0.01, 2), 0.01),
+                                                    / Math.max(Math.pow(distance * 0.02, 2), 0.01),
                                             colors[texture1[i][(int) texturePositionX]][1]),
                                     (int) Math.min(
                                             colors[texture1[i][(int) texturePositionX]][2]
-                                                    / Math.max(Math.pow(distance * 0.01, 2), 0.01),
+                                                    / Math.max(Math.pow(distance * 0.02, 2), 0.01),
                                             colors[texture1[i][(int) texturePositionX]][2]));
                         }
 
@@ -170,6 +189,51 @@ public class Frame extends Actor {
                     break;
                 }
             }
+
+            // double spriteHX = getWorld().getObjects(Enemy.class).get(0).enemyX - playerX;
+            // double spriteHY = getWorld().getObjects(Enemy.class).get(0).enemyY - playerY;
+
+            // double spriteAngle = Math.atan2(-spriteHY, spriteHX) * (180 / PI);
+
+            // double spriteH = (int) Math.round(Math.sqrt(Math.pow(spriteHX, 2)) +
+            // (Math.pow(spriteHY, 2)));
+
+            // if (spriteAngle < 0) {
+            // spriteAngle += 360;
+            // } else if (spriteAngle > 360) {
+            // spriteAngle -= 360;
+            // }
+
+            // double spriteXFactor = playerAngle + (playerFOV / 2) - spriteAngle;
+
+            // boolean isPlayerLookingAtQuadrant4 = 270 <= playerAngle && playerAngle <=
+            // 360;
+            // boolean isPlayerLookingAtQuadrant1 = 0 <= playerAngle && playerAngle <= 90;
+
+            // boolean isSpriteInQuadrant4 = 270 <= spriteAngle && spriteAngle <= 360;
+            // boolean isSpriteInQuadrant1 = 0 <= spriteAngle && spriteAngle <= 90;
+            // if (isPlayerLookingAtQuadrant4 && isSpriteInQuadrant1) {
+            // spriteXFactor += 360;
+            // } else if (isPlayerLookingAtQuadrant1 && isSpriteInQuadrant4) {
+            // spriteXFactor -= 360;
+            // }
+
+            // double spriteScreenX = spriteXFactor * (screenWidth / playerFOV);
+            // double spriteScreenY = screenHeight / 2;
+
+            // int spriteHeight = (int) (100 / spriteH);
+            // int spriteWidth = spriteHeight;
+
+            // int spriteDrawXStart = (int) Math.round(spriteScreenX - (spriteWidth / 2));
+            // int spriteDrawXEnd = (int) Math.round(spriteScreenX + (spriteWidth / 2));
+
+            // frame.setColor(Color.RED);
+            // for (int col = spriteDrawXStart; col < spriteDrawXEnd; col++) {
+            // frame.drawLine(col, (screenHeight / 2) - spriteHeight, col, (screenHeight /
+            // 2) + spriteHeight);
+            // }
+            // frame.drawLine( (int) (ray / resolutionMultiplier), (screenHeight / 2) +
+            // height, (int) (ray / resolutionMultiplier), (screenHeight / 2) - height);
 
             rayAngle += rayIncrement;
         }

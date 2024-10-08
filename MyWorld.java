@@ -1,26 +1,21 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
  * Write a description of class MyWorld here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jack Taylor
+ * @version v1
  */
-public class MyWorld extends World
-{
+public class MyWorld extends World {
 
-    /**
-     * Constructor for objects of class MyWorld.
-     * 
-     */
-    public MyWorld()
-    {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1280, 720, 1); 
+    public MyWorld() {
+        super(852, 480, 1);
+
+        // This sets the resolution of the project.
+        final int resolutionX = 852;
+        final int resolutionY = 480;
+
         Frame frame = new Frame();
-        Enemy enemy1 = new Enemy();
-        
-        addObject(frame, 1280/2, 720/2);
-        addObject(enemy1, 0, 0);
+        addObject(frame, resolutionX / 2, resolutionY / 2);
     }
 }
